@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Крибил · диспетчерская удара</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230a120e'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23ffb703' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23fdf3d3'/%3E%3C/svg%3E">
+</head>
+<body>
+<div class="app">
+	<header class="top">
+		<div class="logo">КРИБИЛ<small>CUE CREW — диспетчерская удара</small></div>
+		<div class="seg" id="modeSeg">
+			<button data-mode="planner" class="on">▣ План</button>
+			<button data-mode="live">⚡ Вживую</button>
+		</div>
+		<div class="seg" id="placeSeg" title="Расстановка битков">
+			<button data-placement="locked" class="on">замок</button>
+			<button data-placement="free">свободно</button>
+		</div>
+		<div class="seg" id="cursorSeg" title="Инструмент">
+			<button data-cursor="drag" class="on">✥ тащить</button>
+			<button data-cursor="aim">◎ целиться</button>
+		</div>
+		<div class="spacer"></div>
+		<div class="hud">
+			<div class="dots" id="cpDots" title="Контрольные точки"></div>
+			<div class="box" title="Рекорд времени на этом маршруте">🏆 <b id="bestBox">—</b></div>
+		</div>
+	</header>
+
+	<main>
+		<section class="stage">
+			<div class="canvas-wrap">
+				<canvas id="table"></canvas>
+				<div class="hint" id="hint"></div>
+				<div class="banner" id="banner" style="display:none"></div>
+			</div>
+
+			<div class="timeline">
+				<button class="iconbtn solid" id="playBtn" title="Играть/пауза (пробел)">▶</button>
+				<button class="iconbtn" id="stepBtn" title="Кадр вперёд (.)">⏭</button>
+				<div class="tval" id="tVal">0.00 с</div>
+				<div class="track">
+					<div class="grad" id="timeGrad"></div>
+					<div class="marks" id="marks"></div>
+					<input type="range" id="scrub" min="0" max="1000" step="1" value="0">
+				</div>
+				<div class="seg" id="speedSeg">
+					<button data-speed="0.25">¼</button>
+					<button data-speed="1" class="on">1×</button>
+					<button data-speed="2">2×</button>
+					<button data-speed="4">4×</button>
+				</div>
+			</div>
+		</section>
+
+		<aside class="side">
+			<div class="tabs">
+				<button data-tab="setup" class="on">Расстановка</button>
+				<button data-tab="crew">Команда</button>
+				<button data-tab="solve">Решатель</button>
+			</div>
+			<div class="scroll" id="scroll">
+				<div id="tab-setup"></div>
+				<div id="tab-crew" style="display:none"></div>
+				<div id="tab-solve" style="display:none"></div>
+			</div>
+		</aside>
+	</main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<dialog class="modal" id="ioModal">
+	<h3 id="ioTitle" style="margin-top:0;font-family:var(--display);letter-spacing:.12em;"></h3>
+	<textarea id="ioText" spellcheck="false"></textarea>
+	<div class="row" style="margin-top:10px;justify-content:flex-end;gap:8px;" id="ioActions"></div>
+</dialog>
+
+<script src="js/core.js"></script>
+<script src="js/geo.js"></script>
+<script src="js/physics.js"></script>
+<script src="js/traj.js"></script>
+<script src="js/levels.js"></script>
+<script src="js/simulate.js"></script>
+<script src="js/bots.js"></script>
+<script src="js/optimizer.js"></script>
+<script src="js/realtime.js"></script>
+<script src="js/render.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

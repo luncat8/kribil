@@ -1,0 +1,11 @@
+{
+	"name": "kribil",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Крибил / Cue Crew — планировщик бильярдных ударов и живая партия, чистый JS без сборки",
+	"scripts": {
+		"test": "node --test tests/*.test.js",
+		"smoke": "node tests/dom.smoke.js"
+	},
+	"license": "MIT"
+}
